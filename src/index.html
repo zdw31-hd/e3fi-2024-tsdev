@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: 888888;
+            }
+            #btnClickme {
+                padding: 2em;
+            }
+        </style>  
+        <script>
+
+            let myList = [];
+            let myObject = {};
+
+            function doSomething() {
+                console.log("Something");
+                addToList();
+                let innerHTML = "<ul>";
+                myList.forEach((item) => {
+                    innerHTML += `<li>
+                            ${item.value}
+                            <span class="deleteButton" onClick="deleteFromList(${item.id})">❌</span>
+                        </li>`;
+                });
+                innerHTML += "</ul>";
+                document.getElementById("helloWorld").innerHTML = innerHTML;
+            }
+
+            function addToList() {
+                let value = document.getElementById("inputField").value;
+                let object = {
+                    id : myList.length,
+                    value : value
+                }
+                myList.push(object);
+            }
+
+            function deleteFromList(number) {
+
+            }
+        </script>      
+    </head>   
+    <body>
+        <div id="helloWorld">
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </div>
+        <button id="btnClickme" onClick="doSomething()">Klick mich</button>
+        <input id="inputField" value="default"></input>
+    </body>
+</html>
